@@ -23,6 +23,9 @@
       iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
       document.body.appendChild(iframe);
     }
+    if (event.detail.query == "Start Over") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+    }
   });
 </script>
 </body>
