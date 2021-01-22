@@ -15,6 +15,9 @@
   const dfMessenger = document.querySelector('df-messenger');
   dfMessenger.addEventListener('df-info-card-clicked', function(event) {
     console.log('info-card-clicked');
+    var iframe = document.createElement('iframe');
+    iframe.src = "https://www.cnn.com";
+    document.body.appendChild(iframe);
   });
 </script>
 </body>
