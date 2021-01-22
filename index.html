@@ -14,8 +14,7 @@
 <script>
   const dfMessenger = document.querySelector('df-messenger');
   dfMessenger.addEventListener('df-chip-clicked', function(event) {
-    console.log('chip-clicked');
-    console.log(event.query)
+    console.log('chip-clicked' + event.detail.query);
     var iframe = document.createElement('iframe');
     iframe.style.width = "640px";
     iframe.style.height = "1200px";
