@@ -11,5 +11,11 @@
   agent-id="e9b92b63-a89f-4458-bb09-04bf7ba6c663"
   language-code="en"
 ></df-messenger>
+<script>
+  const dfMessenger = document.querySelector('df-messenger');
+  dfMessenger.addEventListener('df-info-card-clicked', function(event)) {
+    console.log('info-card-clicked');
+  }
+</script>
 </body>
 </html>
