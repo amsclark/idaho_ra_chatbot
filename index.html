@@ -34,6 +34,19 @@
         document.querySelectorAll('iframe').forEach(e => e.remove());
     }
   });
+  
+  function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+  };
+
+  window.addEventListener('dfMessengerLoaded', function(event) {
+  if (isMobileDevice() === false) {
+      const target = document.querySelector("body > df-messenger").shadowRoot.querySelector("div > df-messenger-chat").shadowRoot
+      const newStyle = document.createElement('style')
+      newStyle.innerHTML = 'div.chat-wrapper{width: 30vw !important;}';
+      target.appendChild(newStyle);
+    }
+  });
 </script>
 </body>
 </html>
