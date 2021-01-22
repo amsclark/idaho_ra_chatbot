@@ -21,14 +21,13 @@
 <script>
   const dfMessenger = document.querySelector('df-messenger');
   dfMessenger.addEventListener('df-chip-clicked', function(event) {
-    console.log('chip-clicked' + event.detail.query);
-    if (event.detail.query == "Finish My Form!") {
-      document.querySelectorAll('iframe').forEach(e => e.remove());
-      var iframe = document.createElement('iframe');
-      iframe.style.width = "640px";
-      iframe.style.height = "1200px";
-      iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
-      document.body.appendChild(iframe);
+      if (event.detail.query == "Finish My Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "640px";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
     }
     if (event.detail.query == "Start Over") {
         document.querySelectorAll('iframe').forEach(e => e.remove());
