@@ -22,7 +22,107 @@
 <script>
   const dfMessenger = document.querySelector('df-messenger');
   dfMessenger.addEventListener('df-chip-clicked', function(event) {
-      if (event.detail.query == "Finish My Form!") {
+    // Which Docassemble interview gets loaded into the iframe is based on small variations in the text on the dialogflow chip.
+    if (event.detail.query == "Finish My Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Complete My Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Finish the Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Complete My Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Finish My Documents!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Complete My Documents!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Finish The Documents!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Complete My Documents!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Ok, Let's Finish My Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Ok, Let's Complete My Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Ok, Let's Finish the Form!") {
+        document.querySelectorAll('iframe').forEach(e => e.remove());
+        var iframe = document.createElement('iframe');
+        iframe.style.width = "100vw";
+        iframe.style.height = "1200px";
+        iframe.src = "https://docassemble.metatheria.solutions/interview?i=docassemble.playground1IdahoRAForms%3Aanimal.yml&reset=1";
+        document.body.appendChild(iframe);
+        document.querySelector("body > df-messenger").shadowRoot.querySelector("#widgetIcon").click();
+    }
+    if (event.detail.query == "Ok, Let's Complete My Form!") {
         document.querySelectorAll('iframe').forEach(e => e.remove());
         var iframe = document.createElement('iframe');
         iframe.style.width = "100vw";
