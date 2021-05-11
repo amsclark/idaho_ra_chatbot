@@ -9,7 +9,7 @@ if (activepaths.includes(drupalpath) || true) {
   document.write(info)
  
   
-  insertionpointplaced = !!document.getElementById('docassemble')
+  insertionpointplaced = !!document.getElementById('docassembleiframe')
   if (insertionpointplaced) {
     // if there is already an insertion point placed, we are going to remove it, and replace it with an empty div in the same location.
     placeholder = document.getElementById('docassembleiframe')
