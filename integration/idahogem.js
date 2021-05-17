@@ -1,6 +1,6 @@
 // determine whether current page is active
 drupalpath = window.location.href.split('/').slice(3,5).join('/')
-activepaths = ["topics/2477", "topics/2478", "topics/2782", "node/2265", "topics/2479", "node/2174", "node/1351", "?q=node/1"]
+activepaths = ["topics/2477", "topics/2478", "topics/2782", "node/2265", "topics/2479", "node/2174", "node/1351"]
 
 // if current page is active, set up the dialogflow messenger
 if (activepaths.includes(drupalpath)) {
