@@ -22,7 +22,7 @@
   botscript = '<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>';
   document.write(botscript);
   
-  
+  /*
   // on the /node/ pages we look for a div with class of openadvocate content
   OAContentArea = !!document.getElementsByClassName("openadvocate-content")[0]
   if (OAContentArea) {
@@ -172,7 +172,8 @@
         document.querySelectorAll('iframe').forEach(e => e.remove());
     }
   });
-  
+  */
+
   function isMobileDevice() {
     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
   };
