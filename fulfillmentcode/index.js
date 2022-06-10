@@ -1,5 +1,97 @@
+// See https://github.com/dialogflow/dialogflow-fulfillment-nodejs
+// for Dialogflow fulfillment library docs, samples, and to report issues
+'use strict';
+ 
+const functions = require('firebase-functions');
+const {WebhookClient} = require('dialogflow-fulfillment');
+const {Card, Suggestion} = require('dialogflow-fulfillment');
+const { Payload } = require("dialogflow-fulfillment");
+const { Text } = require("dialogflow-fulfillment");
+ 
+process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
+ 
+exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
+  const agent = new WebhookClient({ request, response });
+  console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
+  console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
+ 
+  function welcome(agent) {
+    agent.add(`Welcome to my agent!`);
+  }
+ 
+  function fallback(agent) {
+    agent.add(`I didn't understand`);
+    agent.add(`I'm sorry, can you try again?`);
+  }
+  
+  
+  
+  function familyLawFormsHandler(agent) {
+    const formName = agent.parameters.family_law_forms;
+    agent.add(new Text({text: `It seems like you are looking for the legal form called "` + formName + `". We have some links to legal forms on our website. See if the link below helps: `, platform: 'PLATFORM_UNSPECIFIED'}));
+    agent.add(new Text({text: formAddress(formName), platform: 'FACEBOOK'}));
+    const payload = {
+   	"richContent": [
+          [
+            {
+              "icon": {
+                "color": "#FF9800",
+                "type": "chevron_right"
+              },
+              "type": "button",
+              "link": formAddress(formName),
+              "text": "Go to forms"
+            }
+          ]
+  		]};
+	agent.add(new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true}));
+  }
+  
+  function housingFormsHandler(agent) {
+    const formName = agent.parameters.housing_forms;
+    agent.add(new Text({text: `It seems like you are looking for the legal form called "` + formName + `". We have some links to legal forms on our website. See if the link below helps: `, platform: 'PLATFORM_UNSPECIFIED'}));
+    agent.add(new Text({text: formAddress(formName), platform: 'FACEBOOK'}));
+    const payload = {
+   	"richContent": [
+          [
+            {
+              "icon": {
+                "color": "#FF9800",
+                "type": "chevron_right"
+              },
+              "type": "button",
+              "link": formAddress(formName),
+              "text": "Go to forms"
+            }
+          ]
+  		]};
+	agent.add(new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true}));
+  }
 
-addressList["Family Law Case Information Sheet"] = "https://www.idaholegalaid.org/node/2183/family-law-self-help-forms";
+  function guardianconservatorFormsHandler(agent) {
+    const formName = agent.parameters.guardian_conservator_forms;
+    agent.add(new Text({text: `It seems like you are looking for the legal form called "` + formName + `". We have some links to legal forms on our website. See if the link below helps: `, platform: 'PLATFORM_UNSPECIFIED'}));
+    agent.add(new Text({text: formAddress(formName), platform: 'FACEBOOK'}));
+    const payload = {
+   	"richContent": [
+          [
+            {
+              "icon": {
+                "color": "#FF9800",
+                "type": "chevron_right"
+              },
+              "type": "button",
+              "link": formAddress(formName),
+              "text": "Go to forms"
+            }
+          ]
+  		]};
+	agent.add(new Payload(agent.UNSPECIFIED, payload, {rawPayload: true, sendAsMessage: true}));
+  }
+  
+  function formAddress(formName) {
+    var addressList = {};
+    addressList["Family Law Case Information Sheet"] = "https://www.idaholegalaid.org/node/2183/family-law-self-help-forms";
 	addressList["Petition for Divorce"] = "https://www.idaholegalaid.org/node/2183/family-law-self-help-forms";
 	addressList["Family Case Response"] = "https://www.idaholegalaid.org/node/2183/family-law-self-help-forms";
 	addressList["Family Case Response and Counterclaim"] = "https://www.idaholegalaid.org/node/2183/family-law-self-help-forms";
@@ -43,3 +135,14 @@ addressList["Family Law Case Information Sheet"] = "https://www.idaholegalaid.or
 	addressList["Conservator’s Accounting"] = "https://www.idaholegalaid.org/node/2483/conservatorships-and-guardianships";
 	addressList["Conservator’s Accounting for Small Estates under $50,000"] = "https://www.idaholegalaid.org/node/2483/conservatorships-and-guardianships";
 	addressList["Complaint about a Guardian or Conservator"] = "https://www.idaholegalaid.org/node/2483/conservatorships-and-guardianships";
+    return addressList[formName];
+  }
+  
+  
+  // Run the proper function handler based on the matched Dialogflow intent name
+  let intentMap = new Map();
+  intentMap.set('Family_Law_Forms', familyLawFormsHandler);
+  intentMap.set('Housing_Forms', housingFormsHandler);
+  intentMap.set('Guardian_Conservator_Forms', guardianconservatorFormsHandler);
+  agent.handleRequest(intentMap);
+});
